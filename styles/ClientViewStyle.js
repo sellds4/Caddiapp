@@ -4,17 +4,7 @@ var ClientViewStyle = React.StyleSheet.create({
     action: {
         alignSelf: 'stretch',
         backgroundColor: '#4CAF50',
-        borderRadius: 3,
-        flex: 1,
-        margin: 5,
-        padding: 20,
-        shadowColor: 'black',
-        shadowOffset: {
-            width: 3,
-            height: 3
-        },
-        shadowOpacity: 0.8,
-        shadowRadius: 2
+        flex: 1
     },
     actionSubtext: {
         color: 'white',
@@ -22,6 +12,7 @@ var ClientViewStyle = React.StyleSheet.create({
     },
     actionText: {
         color: 'white',
+        height: 0,
         fontSize: 24
     },
     actionTouch: {
@@ -32,7 +23,7 @@ var ClientViewStyle = React.StyleSheet.create({
         alignSelf: 'stretch',
         backgroundColor: 'white',
         flex: 1,
-        padding: 5
+        paddingVertical: 5
     }
 });
 

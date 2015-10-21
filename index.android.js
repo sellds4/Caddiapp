@@ -14,7 +14,9 @@ var {
 
 var ClientList = require('./ClientList'),
     ClientView = require('./ClientView'),
-    Calendar = require('./Calendar');
+    Calendar = require('./Calendar'),
+    NewLesson = require('./NewLesson'),
+    TabBarStyle = require('./styles/TabBarStyle');
 
 var _tabBarActions = ['Clients', 'Schedule', 'Message'],
     _navigator;
@@ -40,8 +42,11 @@ var RouteMapper = function(route, navigator) {
         case 'schedule':
             Component = Calendar;
             break
+        case 'teach':
+            Component = NewLesson;
+            break
         default:
-            Component = Calendar; 
+            Component = NewLesson; 
     }      
 
     return (
@@ -76,14 +81,20 @@ var CaddiApp = React.createClass({
         return (
             <View style={{flex: 1}}>
                 <ToolbarAndroid
-                    style={{height: 50, alignItems: 'center'}}
+                    style={{height: 50, alignItems: 'center', textAlign: 'center'}}
                     title='Caddi'
-                    actions={[
-                        {title: _tabBarActions[0], show: 'always'},
-                        {title: _tabBarActions[1], show: 'always'},
-                        {title: _tabBarActions[2], show: 'always'}
-                    ]}
-                    onActionSelected={(index) => this.routeTo(index)} />                
+                /> 
+                <View style={TabBarStyle.tabBarContainer}>
+                    <TouchableOpacity>
+                        <Text onPress={() => this.routeTo(0)}>{_tabBarActions[0]}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text onPress={() => this.routeTo(1)}>{_tabBarActions[1]}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <Text onPress={() => this.routeTo(2)}>{_tabBarActions[2]}</Text>
+                    </TouchableOpacity>
+                </View>               
                 <View style={{flex: 1}}>
                     <Navigator
                         initialRoute={initialRoute}
