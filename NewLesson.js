@@ -13,7 +13,6 @@ var Button = require('./Button'),
     NewLessonStyle = require('./styles/NewLessonStyle');
 
 var NewLesson = React.createClass({
-
     getInitialState: function(){
         return ({
             clientName: 'Felipe Von Gogh',

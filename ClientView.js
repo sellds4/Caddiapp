@@ -7,7 +7,7 @@ var {
     Text,
     TouchableOpacity,
     TouchableWithoutFeedback,
-    View,
+    View
 } = React;
 
 var ClientProfile = require('./ClientProfile'),

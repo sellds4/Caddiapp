@@ -15,6 +15,7 @@ var {
 var ClientList = require('./ClientList'),
     ClientView = require('./ClientView'),
     Calendar = require('./Calendar'),
+    LandingPage = require('./LandingPage'),
     NewLesson = require('./NewLesson'),
     TabBarStyle = require('./styles/TabBarStyle');
 
@@ -46,7 +47,7 @@ var RouteMapper = function(route, navigator) {
             Component = NewLesson;
             break
         default:
-            Component = NewLesson; 
+            Component = LandingPage; 
     }      
 
     return (
