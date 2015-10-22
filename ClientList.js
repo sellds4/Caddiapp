@@ -8,6 +8,7 @@ var {
     TextInput,
     TouchableOpacity,
     View,
+    ViewPagerAndroid
 } = React;
 
 var ClientListStyle = require('./styles/ClientListStyle'),
@@ -30,14 +31,19 @@ var ClientList = React.createClass({
             // ListView wraps ScrollView and so takes on its properties. 
             // With that in mind you can use the ScrollView's contentContainerStyle prop to style the items.
             // <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={ClientListStyle.background}>
-            <View style={ClientListStyle.background}>
-                <TextInput onChangeText={(searchString) => this.setState({searchString})} value={this.state.searchString} placeholder="search clients" style={ClientListStyle.searchBox}/>
-                <ListView contentContainerStyle={ClientListStyle.clientList}
-                    dataSource={this.state.dataSource}
-                    renderRow={this.renderRow}
-                    keyboardShouldPersistTaps={false}
-                />
-            </View>
+            // <ViewPagerAndroid initialPage={0}>
+                <View style={ClientListStyle.background}>
+                    <TextInput onChangeText={(searchString) => this.setState({searchString})} value={this.state.searchString} placeholder="search clients" style={ClientListStyle.searchBox}/>
+                    <ListView contentContainerStyle={ClientListStyle.clientList}
+                        dataSource={this.state.dataSource}
+                        renderRow={this.renderRow}
+                        keyboardShouldPersistTaps={false}
+                    />
+                </View>
+                // <View>
+                //     <Text>Page 2</Text>
+                // </View>
+            // </ViewPagerAndroid>
             // </LinearGradient>
         );
     },

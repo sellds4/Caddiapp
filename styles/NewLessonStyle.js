@@ -1,24 +1,45 @@
 var React = require('react-native');
 
 var NewLessonStyle = React.StyleSheet.create({
-    newLessonContainer: {
-        flex: 1
+    button: {
+        alignSelf: 'flex-end',
+        marginRight: 20,
+        marginTop: 10,
+        width: 100
+    },
+    lessonInput: {
+        height: 50
     },
     lessonInputContainer: {
-    	flex: 1,
+        borderColor: 'gray',
+        borderRadius: 5,
+        borderWidth: 1,
+        flex: 1
     },
     lessonItemContainer: {
-    	alignItems: 'center',
-    	flexDirection: 'row',
-    	height: 60,
-    	marginVertical: 10
+        flexDirection: 'row',
+        marginHorizontal: 5,
+        marginVertical: 10
     },
     lessonLabelContainer: {
-    	backgroundColor: 'red',
-    	paddingLeft: 5,
+        alignSelf: 'center'
+    },
+    lessonLabelTopContainer: {
+        alignSelf: 'flex-start'
     },
     lessonLabel: {
-    	width: 75
+        width: 100
+    },
+    newLessonContainer: {
+        backgroundColor: 'white',
+        flex: 1
+    },
+    topicChecked: {
+        color: '#4CAF50',
+        fontWeight: 'bold'
+    },
+    topicUnchecked: {
+        color: 'gray'
     }
 });
 

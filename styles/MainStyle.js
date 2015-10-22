@@ -1,6 +1,9 @@
 var React = require('react-native');
 
 var MainStyle = React.StyleSheet.create({
+	boldText: {
+		fontWeight: 'bold'
+	},
     flexColumn: {
         flex: 1,
         flexDirection: 'column'
@@ -8,6 +11,9 @@ var MainStyle = React.StyleSheet.create({
     flexRow: {
         flex: 1,
         flexDirection: 'row'
+    },
+    greenText: {
+    	color: '#4CAF50'
     }
 });
 
