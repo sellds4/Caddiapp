@@ -12,10 +12,8 @@ var {
     View,
 } = React;
 
-var ClientList = require('./ClientList'),
-    ClientView = require('./ClientView'),
-    Calendar = require('./Calendar'),
-    LandingPage = require('./LandingPage'),
+var ClientView = require('./ClientView'),
+    MainView = require('./MainView'),
     NewLesson = require('./NewLesson'),
     TabBarStyle = require('./styles/TabBarStyle');
 
@@ -34,20 +32,17 @@ var RouteMapper = function(route, navigator) {
     _navigator = navigator;
     var Component;
     switch (route.name) {
-        case 'clientList':
-            Component = ClientList;
+        case 'mainView':
+            Component = MainView;
             break;
         case 'clientView':
             Component = ClientView;
             break;
-        case 'schedule':
-            Component = Calendar;
-            break
         case 'teach':
             Component = NewLesson;
             break
         default:
-            Component = LandingPage; 
+            Component = MainView; 
     }      
 
     return (
@@ -78,24 +73,13 @@ var CaddiApp = React.createClass({
         }
     },
     render: function() {
-        var initialRoute = {name: 'clientList'};
+        var initialRoute = {name: 'mainView'};
         return (
             <View style={{flex: 1}}>
                 <ToolbarAndroid
                     style={{height: 50, alignItems: 'center', textAlign: 'center'}}
                     title='Caddi'
-                /> 
-                <View style={TabBarStyle.tabBarContainer}>
-                    <TouchableOpacity>
-                        <Text onPress={() => this.routeTo(0)}>{_tabBarActions[0]}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text onPress={() => this.routeTo(1)}>{_tabBarActions[1]}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text onPress={() => this.routeTo(2)}>{_tabBarActions[2]}</Text>
-                    </TouchableOpacity>
-                </View>               
+                />
                 <View style={{flex: 1}}>
                     <Navigator
                         initialRoute={initialRoute}
@@ -104,20 +88,19 @@ var CaddiApp = React.createClass({
                     />
                 </View>
             </View>
+                // <View style={TabBarStyle.tabBarContainer}>
+                //     <TouchableOpacity>
+                //         <Text onPress={() => this.routeTo(0)}>{_tabBarActions[0]}</Text>
+                //     </TouchableOpacity>
+                //     <TouchableOpacity>
+                //         <Text onPress={() => this.routeTo(1)}>{_tabBarActions[1]}</Text>
+                //     </TouchableOpacity>
+                //     <TouchableOpacity>
+                //         <Text onPress={() => this.routeTo(2)}>{_tabBarActions[2]}</Text>
+                //     </TouchableOpacity>
+                // </View>               
         );
     }
 });
 
 AppRegistry.registerComponent('CaddiApp', () => CaddiApp);
-
-// <View navigator={navigator}>
-//     <TouchableOpacity onPress={() => routeTo('clientList')}>
-//         <Text>Clients</Text>
-//     </TouchableOpacity>
-//     <TouchableOpacity>
-//         <Text>Schedule</Text>
-//     </TouchableOpacity>
-//     <TouchableOpacity>
-//         <Text>Communicate</Text>
-//     </TouchableOpacity>
-// </View>
