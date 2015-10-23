@@ -51,7 +51,11 @@ var ClientList = React.createClass({
     renderRow: function(clientData) {
         return (
             <View style={ClientListStyle.clientContainer}>
-                <TouchableOpacity onPress={() => this.selectClient(clientData)} underlayColor='rgba(0,0,0,0)'>
+                <TouchableOpacity
+                    onPress={() => this.selectClient(clientData)}
+                    onLongPress={() => this.teachLesson(clientData)}
+                    underlayColor='rgba(0,0,0,0)'
+                >
                     <View style={ClientListStyle.clientPic}>
                         <Text style={ClientListStyle.clientPicText}>{clientData.FirstName.charAt(0)}{clientData.LastName.charAt(0)}</Text>
                     </View>
@@ -80,6 +84,14 @@ var ClientList = React.createClass({
         this.state.searchString = '';
         this.props.navigator.push({
             name: 'clientView',
+            passProps: {clientData: clientData}
+        });
+    },
+
+    teachLesson: function(clientData) {
+        this.state.searchString = '';
+        this.props.navigator.push({
+            name: 'teach',
             passProps: {clientData: clientData}
         });
     },
