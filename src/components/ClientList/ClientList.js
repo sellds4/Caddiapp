@@ -12,7 +12,7 @@ var {
 } = React;
 
 var ClientListStyle = require('./styles/ClientListStyle'),
-    ClientView = require('./ClientView');
+    ClientView = require('././ClientView/ClientView');
 
 var ClientList = React.createClass({
 

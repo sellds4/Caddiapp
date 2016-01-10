@@ -10,9 +10,9 @@ var {
     View
 } = React;
 
-var ClientProfile = require('./ClientProfile'),
+var ClientProfile = require('ClientProfile'),
     ClientViewStyle = require('./styles/ClientViewStyle'),
-    MainStyle = require('./styles/MainStyle');
+    MainStyle = require('././styles/MainStyle');
 
 var ClientView = React.createClass({
     // getInitialState: function() {

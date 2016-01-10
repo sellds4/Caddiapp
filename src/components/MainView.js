@@ -8,9 +8,9 @@ var {
 
 // var MainViewStyle = require('./styles/MainViewStyle');
 
-var Calendar = require('./Calendar'),
-	ClientList = require('./ClientList'),
-	NewLesson = require('./NewLesson');
+var Calendar = require('./Schedule/Calendar'),
+	ClientList = require('./ClientList/ClientList'),
+	NewLesson = require('./NewLesson/NewLesson');
 
 var MainView = React.createClass({
 
