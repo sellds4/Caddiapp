@@ -10,7 +10,7 @@ var {
 } = React;
 
 var CalendarStyle = require('./styles/CalendarStyle'),
-    MainStyle = require('./styles/MainStyle');
+    MainStyle = require('.././styles/MainStyle');
 
 var maxWidth = 467;
 var cb = null;

@@ -7,9 +7,9 @@ var {
     View,
 } = React;
 
-var Button = require('./Button'),
-    ButtonStyle = require('./styles/ButtonStyle'),
-    MainStyle = require('./styles/MainStyle'),
+var Button = require('../common/Button'),
+    ButtonStyle = require('../common/styles/ButtonStyle'),
+    MainStyle = require('.././styles/MainStyle'),
     NewLessonStyle = require('./styles/NewLessonStyle');
 
 var NewLesson = React.createClass({

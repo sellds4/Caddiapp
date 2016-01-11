@@ -12,10 +12,10 @@ var {
     View,
 } = React;
 
-var ClientView = require('./ClientView'),
-    MainView = require('./MainView'),
-    NewLesson = require('./NewLesson'),
-    TabBarStyle = require('./styles/TabBarStyle');
+var ClientView = require('./src/components/ClientView/ClientView'),
+    MainView = require('./src/components/MainView'),
+    NewLesson = require('./src/components/NewLesson/NewLesson'),
+    TabBarStyle = require('./src/components/styles/TabBarStyle');
 
 var _tabBarActions = ['Clients', 'Schedule', 'Message'],
     _navigator;
