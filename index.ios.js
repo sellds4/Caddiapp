@@ -4,10 +4,9 @@ var React = require('react-native');
 
 var {
     AppRegistry,
-    BackAndroid,
     Navigator,
     Text,
-    TopBarIOS,
+    TabBarIOS,
     TouchableOpacity,
     View,
 } = React;
@@ -19,14 +18,6 @@ var ClientView = require('./src/components/ClientView/ClientView'),
 
 var _tabBarActions = ['Clients', 'Schedule', 'Message'],
     _navigator;
-
-BackAndroid.addEventListener('hardwareBackPress', () => {
-    if (_navigator && _navigator.getCurrentRoutes().length > 1) {
-        _navigator.pop();
-        return true;
-    }
-    return false;
-});
 
 var RouteMapper = function(route, navigator) {
     _navigator = navigator;
@@ -76,7 +67,7 @@ var CaddiApp = React.createClass({
         var initialRoute = {name: 'mainView'};
         return (
             <View style={{flex: 1}}>
-                <TopBarIOS
+                <TabBarIOS
                     style={{height: 50, alignItems: 'center', textAlign: 'center'}}
                     title='Caddi'
                 />

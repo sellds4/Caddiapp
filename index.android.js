@@ -17,8 +17,8 @@ var ClientView = require('./src/components/ClientView/ClientView'),
     NewLesson = require('./src/components/NewLesson/NewLesson'),
     TabBarStyle = require('./src/components/styles/TabBarStyle');
 
-var _tabBarActions = ['Clients', 'Schedule', 'Message'],
-    _navigator;
+// var _tabBarActions = ['Clients', 'Schedule', 'Message'],
+var _navigator;
 
 BackAndroid.addEventListener('hardwareBackPress', () => {
     if (_navigator && _navigator.getCurrentRoutes().length > 1) {
