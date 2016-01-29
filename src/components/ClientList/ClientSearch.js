@@ -37,7 +37,12 @@ var ClientSearch = React.createClass({
 
         return (
             <View>
-                <TextInput onChangeText={(searchString) => this.setState({searchString})} value={this.state.searchString} placeholder="search clients" style={ClientSearchStyle.searchBox}/>
+                <TextInput
+                    // onChangeText={(searchString) => this.setState({searchString})}
+                    value={this.state.searchString}
+                    placeholder="search clients"
+                    style={ClientSearchStyle.searchBox}
+                />
             </View>
         );
 

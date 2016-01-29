@@ -13,7 +13,7 @@ var Button = React.createClass({
     },
     render: function() {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.props.action}>
                 <View style={this.props.btnColor}>
                     <Text style={this.props.btnTextColor}>{this.props.text}</Text>
                 </View>

@@ -2,6 +2,7 @@ var React = require('react-native'),
     LinearGradient = require('react-native-linear-gradient');
 
 var {
+    AsyncStorage,
     ListView,
     ScrollView,
     Text,
@@ -33,8 +34,14 @@ var ClientList = React.createClass({
             // <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={ClientListStyle.background}>
             // <ViewPagerAndroid initialPage={0}>
                 <View style={ClientListStyle.background}>
-                    <TextInput onChangeText={(searchString) => this.setState({searchString})} value={this.state.searchString} placeholder="search clients" style={ClientListStyle.searchBox}/>
-                    <ListView contentContainerStyle={ClientListStyle.clientList}
+                    <TextInput
+                        onChangeText={(searchString) => this.setState({searchString})}
+                        value={this.state.searchString}
+                        placeholder="search clients"
+                        style={ClientListStyle.searchBox}
+                    />
+                    <ListView
+                        contentContainerStyle={ClientListStyle.clientList}
                         dataSource={this.state.dataSource}
                         renderRow={this.renderRow}
                         keyboardShouldPersistTaps={false}
