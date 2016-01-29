@@ -46,21 +46,11 @@ class AuthService {
             })
         })
         .then((response) => {
-            console.log(response);
             LoginActions.signupUser(response);
         })
         .catch((error) => {
             alert(error);
         });
-    }
-
-    handleAuth(loginPromise) {
-        return loginPromise
-            .then(function(response) {
-                var jwt = response.id_token;
-                LoginActions.loginUser(jwt);
-                return true;
-            });
     }
 }
 

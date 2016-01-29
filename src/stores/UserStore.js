@@ -17,7 +17,6 @@ class UserStore extends BaseStore {
     }
 
     _registerToActions(action) {
-        console.log(action)
         if (action.response === 'PENDING') {
             return true;
         }
