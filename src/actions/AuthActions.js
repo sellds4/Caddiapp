@@ -4,9 +4,8 @@ import StorageService from '../services/StorageService.js';
 // import RouterContainer from '../services/RouterContainer'
 
 export default {
-    loginUser: (response) => {
-        let data = response._bodyInit,
-            accessToken = data.access_token,
+    loginUser: (data) => {
+        let accessToken = data.access_token,
             refreshToken = data.refresh_token,
             username= data.username;
 

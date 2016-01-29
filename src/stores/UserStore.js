@@ -1,5 +1,5 @@
 import React from 'react-native';
-import {Store} from 'flux/utils';
+import BaseStore from './BaseStore';
 import UserConstants from '../constants/UserConstants';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
@@ -7,31 +7,35 @@ var {
   AsyncStorage
 } = React;
 
-let _user, _accessToken, _refreshToken;
+let _user = {};
 
-class UserStore extends Store {
+class UserStore extends BaseStore {
     constructor() {
-        super(AppDispatcher);
-        this.dispatchToken = AppDispatcher.register(function(action) {
-            if (action.response === 'PENDING') {
-                return true;
-            }
+        super();
+        this.subscribe(() => this._registerToActions.bind(this))
 
-            switch(action.actionType) {
-                case UserConstants.LOGIN_USER:
-                    _accessToken = action.accessToken;
-                    _refreshToken = action.refreshToken;
-                    _user = action.username;
-                    UserStore.emitChange();
-                    break;
-                case UserConstants.LOGOUT_USER:
-                    _user = _accessToken = _refreshToken = null;
-                    UserStore.emitChange();
-                    break;
-                default:
-                    break;
-            }
-        }); 
+    }
+
+    _registerToActions(action) {
+        console.log(action)
+        if (action.response === 'PENDING') {
+            return true;
+        }
+
+        switch(action.actionType) {
+            case UserConstants.LOGIN_USER:
+                _user.accessToken = action.accessToken;
+                _user.refreshToken = action.refreshToken;
+                _user.username = action.username;
+                this.emitChange();
+                break;
+            case UserConstants.LOGOUT_USER:
+                _user = {};
+                this.emitChange();
+                break;
+            default:
+                break;
+        }
     }
 
     isLoggedIn() {
@@ -43,11 +47,11 @@ class UserStore extends Store {
     }
 
     get accessToken() {
-        return _accessToken;
+        return _user.accessToken;
     }
 
     get refreshToken() {
-        return _refreshToken;
+        return _user.refreshToken;
     }
 }
 

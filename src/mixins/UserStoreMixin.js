@@ -16,10 +16,10 @@ module.exports = {
 
     componentDidMount() {
         this.updateUserFromStore();
-        _listenerToken = UserStore.addListener(this.updateUserFromStore);
+        UserStore.addChangeListener(this.updateUserFromStore);
     },
 
     componentWillUnmount() {
-        _listenerToken.remove();
+        UserStore.removeChangeListener(this.updateUserFromStore);
     },
 };

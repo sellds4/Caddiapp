@@ -8,7 +8,6 @@ var {
 
 var Button = React.createClass({
     getInitialState: function() {
-        console.log(this.props);
         return ({})
     },
     render: function() {

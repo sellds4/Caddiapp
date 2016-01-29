@@ -20,7 +20,7 @@ var MainView = React.createClass({
     afterUpdateUserFromStore() {
         var user = UserStore.user;
 
-        if(!user || !user.username) {
+        if(!user || !user.accessToken) {
             this.props.navigator.replace({name: 'login'});
         }
     },

@@ -2,7 +2,9 @@ import AuthConstants from '../constants/AuthConstants';
 import AuthActions from '../actions/AuthActions';
 
 class AuthService {
-    login(email, password) {   
+    // constructor(){}
+
+    login(email, password) {
         fetch(AuthConstants.LOGIN_URL, {
             method: 'POST',
             headers: {
@@ -10,16 +12,16 @@ class AuthService {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                "username": email,
-                "password": password,
-                "client_id": AuthConstants.CLIENT_ID,
-                "client_secret": AuthConstants.CLIENT_SECRET,
-                "grant_type":"password"
+                'username': email,
+                'password': password,
+                'client_id': AuthConstants.CLIENT_ID,
+                'client_secret': AuthConstants.CLIENT_SECRET,
+                'grant_type': 'password'
             })
         })
         .then((response) => {
-            console.log(response);
-            LoginActions.loginUser(response);
+            let jsonResponse = JSON.parse(response._bodyInit);
+            AuthActions.loginUser(jsonResponse);
         })
         .catch((error) => {
             alert(error);

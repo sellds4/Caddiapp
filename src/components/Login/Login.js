@@ -20,7 +20,6 @@ var Login = React.createClass ({
     mixins: [UserStoreMixin],
 
     getInitialState: function() {
-        console.log('there', Auth.login)
         return {
             email: '',
             password: ''
@@ -29,16 +28,13 @@ var Login = React.createClass ({
 
     afterUpdateUserFromStore() {
         var user = UserStore.user;
-
-        if(user && user.username) {
+        if(user && user.accessToken) {
             this.props.navigator.replace({name: 'mainView'});
         }
     },
 
     login() {
-        Auth.login(this.state.email, this.state.password).catch(function(err) {
-            alert('Error logging in', err);
-        });
+        Auth.login(this.state.email, this.state.password);
     },
 
     render() {
